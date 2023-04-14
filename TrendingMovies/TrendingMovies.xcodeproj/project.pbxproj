@@ -17,6 +17,9 @@
 		8DC23C3929E9D0A800EEC3FA /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DC23C3729E9D0A800EEC3FA /* MainViewController.xib */; };
 		8DC23C4329E9DEAE00EEC3FA /* MainViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC23C4229E9DEAE00EEC3FA /* MainViewController+TableView.swift */; };
 		8DC23C4529E9E06A00EEC3FA /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC23C4429E9E06A00EEC3FA /* MainViewModel.swift */; };
+		8DC23C4729E9E7F800EEC3FA /* NetworkConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC23C4629E9E7F800EEC3FA /* NetworkConstant.swift */; };
+		8DC23C4929E9E93E00EEC3FA /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC23C4829E9E93E00EEC3FA /* APICaller.swift */; };
+		8DC23C4B29E9E9A200EEC3FA /* TrendingMoviesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC23C4A29E9E9A200EEC3FA /* TrendingMoviesModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,9 @@
 		8DC23C3729E9D0A800EEC3FA /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		8DC23C4229E9DEAE00EEC3FA /* MainViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+TableView.swift"; sourceTree = "<group>"; };
 		8DC23C4429E9E06A00EEC3FA /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		8DC23C4629E9E7F800EEC3FA /* NetworkConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstant.swift; sourceTree = "<group>"; };
+		8DC23C4829E9E93E00EEC3FA /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
+		8DC23C4A29E9E9A200EEC3FA /* TrendingMoviesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingMoviesModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +175,7 @@
 		8DC23C3D29E9D30D00EEC3FA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8DC23C4A29E9E9A200EEC3FA /* TrendingMoviesModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -198,6 +205,8 @@
 		8DC23C4129E9D34400EEC3FA /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				8DC23C4629E9E7F800EEC3FA /* NetworkConstant.swift */,
+				8DC23C4829E9E93E00EEC3FA /* APICaller.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -334,9 +343,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DC23C0629E9CF7F00EEC3FA /* AppDelegate.swift in Sources */,
+				8DC23C4929E9E93E00EEC3FA /* APICaller.swift in Sources */,
 				8DC23C4329E9DEAE00EEC3FA /* MainViewController+TableView.swift in Sources */,
 				8DC23C3829E9D0A800EEC3FA /* MainViewController.swift in Sources */,
+				8DC23C4729E9E7F800EEC3FA /* NetworkConstant.swift in Sources */,
 				8DC23C4529E9E06A00EEC3FA /* MainViewModel.swift in Sources */,
+				8DC23C4B29E9E9A200EEC3FA /* TrendingMoviesModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
