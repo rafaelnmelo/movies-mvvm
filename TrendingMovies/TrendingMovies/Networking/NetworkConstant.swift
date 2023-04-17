@@ -16,7 +16,7 @@ class NetworkConstant {
     
     public var apiKey: String {
         get {
-            "1e4ba8bbb5c77a2861e8a23414ce6aed"
+            "1e4ba8bbb5c77a2861e8a23414ce6aed&language=pt-BR"
         }
     }
     
