@@ -12,13 +12,13 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         tableview.delegate = self
         tableview.dataSource = self
         
-        tableview.backgroundColor = .clear
+        tableview.backgroundColor = .systemBackground
         
         registerCells()
     }
     
     func registerCells() {
-        tableview.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableview.register(MainMovieCell.register(), forCellReuseIdentifier: MainMovieCell.identifier)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -30,9 +30,13 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let movieData = cellDataSource[indexPath.row]
-        cell.textLabel?.text = self.viewModel.getMovieTitle(movieData)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MainMovieCell.identifier,
+                                                       for: indexPath) as? MainMovieCell else {
+            return UITableViewCell()
+        }
+        let cellViewModel = cellDataSource[indexPath.row]
+        cell.setupCell(viewModel: cellViewModel)
+        cell.selectionStyle = .none
         return cell
     }
     
@@ -40,5 +44,9 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         DispatchQueue.main.async {
             self.tableview.reloadData()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        150
     }
 }

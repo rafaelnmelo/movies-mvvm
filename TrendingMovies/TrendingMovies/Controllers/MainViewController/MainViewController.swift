@@ -14,7 +14,7 @@ class MainViewController: UIViewController {
     
     var viewModel = MainViewModel()
     
-    var cellDataSource: [Movie] = []
+    var cellDataSource: [MovieTableCellViewModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +23,7 @@ class MainViewController: UIViewController {
     }
     
     func configView() {
-        self.title = "Main View"
+        self.title = "Tendências de Hoje"
         setupTableView()
     }
 
