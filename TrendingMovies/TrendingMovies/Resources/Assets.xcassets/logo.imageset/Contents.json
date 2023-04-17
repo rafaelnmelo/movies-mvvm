@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "MovieDetails.png",
+      "filename" : "Captura de Tela 2023-04-17 às 17.02.14-2.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Captura de Tela 2023-04-17 às 17.02.14-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "Captura de Tela 2023-04-17 às 17.02.14.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
