@@ -30,7 +30,6 @@ class MainViewModel {
             
             switch result {
             case .success(let movieList):
-                print("Top trending Counts: \(movieList.results?.count ?? 0)")
                 self?.dataSource = movieList
                 self?.mapCellData()
             case .failure(let error):
