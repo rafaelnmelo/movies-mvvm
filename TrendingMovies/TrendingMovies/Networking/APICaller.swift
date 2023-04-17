@@ -23,6 +23,7 @@ public class APICaller {
         }
         
         URLSession.shared.dataTask(with: url) { dataResponse, urlResponse, error in
+            print(String(data: dataResponse!, encoding: .utf8)!)
             if error == nil,
                let data = dataResponse,
                let resulData = try? JSONDecoder().decode(TrendingMoviesModel.self, from: data) {

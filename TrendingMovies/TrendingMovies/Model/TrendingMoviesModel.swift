@@ -25,11 +25,13 @@ struct Movie: Codable {
     let backdropPath: String?
     let genreIds: [Int]?
     let id: Int?
+    let name: String?
     let originalLanguage: String?
     let originalTitle: String?
     let overview: String?
     let popularity: Double?
     let posterPath: String?
+    let firstAirDate: String?
     let releaseDate: String?
     let title: String?
     let video: Bool?
@@ -40,10 +42,11 @@ struct Movie: Codable {
         case adult
         case backdropPath = "backdrop_path"
         case genreIds = "genre_ids"
-        case id
+        case id, name
         case originalLanguage = "original_language"
         case originalTitle = "original_title"
         case overview,popularity
+        case firstAirDate = "first_air_date"
         case posterPath = "poster_path"
         case releaseDate = "release_date"
         case title,video
