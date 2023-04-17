@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -10,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="TrendingMovies" customModuleProvider="target">
             <connections>
+                <outlet property="activityIndicator" destination="1o9-1X-FTl" id="VKY-ga-FNe"/>
                 <outlet property="tableview" destination="d8M-qM-E5C" id="Rp9-eh-iSb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -23,19 +25,28 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="1o9-1X-FTl">
+                    <rect key="frame" x="188.5" y="434.5" width="37" height="37"/>
+                    <color key="color" name="AccentColor"/>
+                </activityIndicatorView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="d8M-qM-E5C" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="3IG-3v-kjt"/>
                 <constraint firstItem="d8M-qM-E5C" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="TPa-63-uVw"/>
+                <constraint firstItem="1o9-1X-FTl" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Yju-md-UTr"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="d8M-qM-E5C" secondAttribute="trailing" id="i1U-Ix-UqH"/>
+                <constraint firstItem="1o9-1X-FTl" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="mRK-WV-Yfb"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="d8M-qM-E5C" secondAttribute="bottom" id="pdK-34-PtM"/>
             </constraints>
             <point key="canvasLocation" x="118.84057971014494" y="104.46428571428571"/>
         </view>
     </objects>
     <resources>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
