@@ -7,6 +7,7 @@
 
 import UIKit
 
+//MARK: - CLASS -
 class MainViewController: UIViewController {
     
     @IBOutlet weak var tableview: UITableView!
@@ -18,20 +19,23 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configView()
-        bindViewModel()
+        self.configView()
+        self.bindViewModel()
     }
     
     func configView() {
         self.title = "Tendências de Hoje"
-        setupTableView()
+        self.setupTableView()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         viewModel.getData()
     }
-    
+}
+
+//MARK: - FUNCTIONS -
+extension MainViewController {
     func bindViewModel() {
         viewModel.isLoading.bind { [weak self] isLoading in
             guard let self = self, let isLoading = isLoading else {return}
@@ -49,7 +53,7 @@ class MainViewController: UIViewController {
         }
     }
     
-    func openDetail(movieId: Int) {
+    func createVCToNavigate(movieId: Int) {
         guard let movie = viewModel.retriveMovie(with: movieId) else {return}
         let detailsViewModel = DetailsMovieViewModel(movie: movie)
         let detailsVC = DetailsMovieViewController(viewModel: detailsViewModel)

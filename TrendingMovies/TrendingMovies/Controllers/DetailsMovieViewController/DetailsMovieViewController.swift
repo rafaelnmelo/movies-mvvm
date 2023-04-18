@@ -7,6 +7,7 @@
 
 import UIKit
 
+//MARK: - CLASS -
 class DetailsMovieViewController: UIViewController {
 
     @IBOutlet weak var movieImage: UIImageView!
@@ -26,14 +27,16 @@ class DetailsMovieViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configView()
+        self.configView()
     }
-    
+}
+
+//MARK: - FUNCTIONS -
+extension DetailsMovieViewController {
     func configView() {
         self.title = "Detalhes"
         movieImage.sd_setImage(with: viewModel.movieImage)
         movieTitle.text = viewModel.movieTitle
         movieDesc.text = viewModel.movieDescription
     }
-
 }

@@ -19,10 +19,6 @@ class MovieTableCellViewModel {
         self.title = movieData.title ?? movieData.name ?? "[Sem titulo]"
         self.date = movieData.releaseDate ?? movieData.firstAirDate ?? "[Sem data de lançamento]"
         self.rating = "\(movieData.voteAverage ?? 0)/10"
-        self.imageUrl = makeImageURL(movieData.posterPath ?? "")
-    }
-    
-    private func makeImageURL(_ imageCode: String) -> URL? {
-        URL(string: "\(NetworkConstant.shared.imageServerAddress)\(imageCode)")
+        self.imageUrl = (NetworkConstant.shared.imageServerAddress + (movieData.posterPath ?? "")).makeURL()
     }
 }

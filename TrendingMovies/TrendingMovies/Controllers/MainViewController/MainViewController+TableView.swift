@@ -7,20 +7,30 @@
 
 import UIKit
 
-extension MainViewController: UITableViewDataSource, UITableViewDelegate {
+//MARK: - FUNCTIONS -
+extension MainViewController {
     func setupTableView() {
         tableview.delegate = self
         tableview.dataSource = self
-        
+
         tableview.backgroundColor = .systemBackground
-        
+
         registerCells()
     }
-    
+
     func registerCells() {
         tableview.register(MainMovieCell.register(), forCellReuseIdentifier: MainMovieCell.identifier)
     }
-    
+
+    func reloadTableView() {
+        DispatchQueue.main.async {
+            self.tableview.reloadData()
+        }
+    }
+}
+
+//MARK: - DATASOURCE -
+extension MainViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         viewModel.numberOfSections()
     }
@@ -28,7 +38,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.numberOfRows(in: section)
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MainMovieCell.identifier,
                                                        for: indexPath) as? MainMovieCell else {
@@ -39,19 +49,16 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         cell.selectionStyle = .none
         return cell
     }
-    
-    func reloadTableView() {
-        DispatchQueue.main.async {
-            self.tableview.reloadData()
-        }
-    }
-    
+}
+
+//MARK: - DELEGATE -
+extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         150
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let movieId = cellDataSource[indexPath.row].id
-        self.openDetail(movieId: movieId)
+        self.createVCToNavigate(movieId: movieId)
     }
 }
