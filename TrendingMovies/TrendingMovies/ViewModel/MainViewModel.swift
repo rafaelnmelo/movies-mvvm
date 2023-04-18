@@ -45,4 +45,11 @@ class MainViewModel {
     func getMovieTitle(_ movie: Movie) -> String {
         movie.title ?? movie.originalTitle ?? "[Sem título]"
     }
+    
+    func retriveMovie(with id: Int) -> Movie? {
+        guard let movie = dataSource?.results?.first(where: {$0.id == id}) else {
+            return nil
+        }
+        return movie
+    }
 }
