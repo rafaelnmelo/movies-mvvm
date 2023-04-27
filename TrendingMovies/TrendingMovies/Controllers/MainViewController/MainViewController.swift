@@ -14,6 +14,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var viewModel = MainViewModel()
+    var coordinator: AppCoordinator?
     
     var cellDataSource: [MovieTableCellViewModel] = []
     
@@ -56,9 +57,8 @@ extension MainViewController {
     func createVCToNavigate(movieId: Int) {
         guard let movie = viewModel.retriveMovie(with: movieId) else {return}
         let detailsViewModel = DetailsMovieViewModel(movie: movie)
-        let detailsVC = DetailsMovieViewController(viewModel: detailsViewModel)
         DispatchQueue.main.async {
-            self.navigationController?.pushViewController(detailsVC, animated: true)
+            self.coordinator?.goToDetails(viewModel: detailsViewModel)
         }
     }
 }

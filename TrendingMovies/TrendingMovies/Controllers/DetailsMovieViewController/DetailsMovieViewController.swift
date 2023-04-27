@@ -15,6 +15,7 @@ class DetailsMovieViewController: UIViewController {
     @IBOutlet weak var movieDesc: UILabel!
     
     var viewModel: DetailsMovieViewModel
+    var coordinator: AppCoordinator?
     
     init(viewModel: DetailsMovieViewModel) {
         self.viewModel = viewModel

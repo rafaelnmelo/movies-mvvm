@@ -18,6 +18,7 @@
 		8D1BC01E29FB10CA00C2DC76 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8D1BC01D29FB10CA00C2DC76 /* RxSwift */; };
 		8D1BC02129FB10FC00C2DC76 /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = 8D1BC02029FB10FC00C2DC76 /* Differentiator */; };
 		8D1BC02329FB10FC00C2DC76 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 8D1BC02229FB10FC00C2DC76 /* RxDataSources */; };
+		8D1BC02629FB125E00C2DC76 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1BC02529FB125E00C2DC76 /* AppCoordinator.swift */; };
 		8D50DE7929EEC8FC001EA6EF /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D50DE7829EEC8FC001EA6EF /* Data+Extension.swift */; };
 		8D50DE7D29EECB3C001EA6EF /* DetailsMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D50DE7B29EECB3C001EA6EF /* DetailsMovieViewController.swift */; };
 		8D50DE7E29EECB3C001EA6EF /* DetailsMovieViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D50DE7C29EECB3C001EA6EF /* DetailsMovieViewController.xib */; };
@@ -61,6 +62,7 @@
 		8D0DE68E29EDCDA40094C671 /* MainMovieCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMovieCell.xib; sourceTree = "<group>"; };
 		8D0DE69129EDD1360094C671 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		8D0DE69329EDD2360094C671 /* MovieTableCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableCellViewModel.swift; sourceTree = "<group>"; };
+		8D1BC02529FB125E00C2DC76 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		8D50DE7829EEC8FC001EA6EF /* Data+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
 		8D50DE7B29EECB3C001EA6EF /* DetailsMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsMovieViewController.swift; sourceTree = "<group>"; };
 		8D50DE7C29EECB3C001EA6EF /* DetailsMovieViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsMovieViewController.xib; sourceTree = "<group>"; };
@@ -125,6 +127,16 @@
 			path = MainMovieCell;
 			sourceTree = "<group>";
 		};
+		8D1BC02429FB124100C2DC76 /* AppStart */ = {
+			isa = PBXGroup;
+			children = (
+				8DC23C1029E9CF8100EEC3FA /* LaunchScreen.storyboard */,
+				8DC23C0529E9CF7F00EEC3FA /* AppDelegate.swift */,
+				8D1BC02529FB125E00C2DC76 /* AppCoordinator.swift */,
+			);
+			path = AppStart;
+			sourceTree = "<group>";
+		};
 		8D50DE7A29EECB0B001EA6EF /* DetailsMovieViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +169,7 @@
 		8DC23C0429E9CF7F00EEC3FA /* TrendingMovies */ = {
 			isa = PBXGroup;
 			children = (
+				8D1BC02429FB124100C2DC76 /* AppStart */,
 				8DC23C3E29E9D31A00EEC3FA /* Classes */,
 				8DC23C3C29E9D30500EEC3FA /* Controllers */,
 				8DC23C4029E9D33600EEC3FA /* Extensions */,
@@ -165,7 +178,6 @@
 				8DC23C3F29E9D32300EEC3FA /* Resources */,
 				8DC23C3B29E9D2FE00EEC3FA /* ViewModel */,
 				8DC23C3A29E9D2F100EEC3FA /* View */,
-				8DC23C0529E9CF7F00EEC3FA /* AppDelegate.swift */,
 				8DC23C1329E9CF8100EEC3FA /* Info.plist */,
 			);
 			path = TrendingMovies;
@@ -202,7 +214,6 @@
 			isa = PBXGroup;
 			children = (
 				8D0DE68C29EDCD6D0094C671 /* MainMovieCell */,
-				8DC23C1029E9CF8100EEC3FA /* LaunchScreen.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -419,6 +430,7 @@
 				8D0DE68B29EDBC9F0094C671 /* Observable.swift in Sources */,
 				8D0DE68F29EDCDA40094C671 /* MainMovieCell.swift in Sources */,
 				8DC23C0629E9CF7F00EEC3FA /* AppDelegate.swift in Sources */,
+				8D1BC02629FB125E00C2DC76 /* AppCoordinator.swift in Sources */,
 				8DC23C4929E9E93E00EEC3FA /* APICaller.swift in Sources */,
 				8DC23C4329E9DEAE00EEC3FA /* MainViewController+TableView.swift in Sources */,
 				8D50DE7929EEC8FC001EA6EF /* Data+Extension.swift in Sources */,
