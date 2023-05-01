@@ -69,7 +69,7 @@
 		8D50DE8229EEDB0C001EA6EF /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		8DB85CA02A003E5400675C93 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		8DB85CA22A003F9900675C93 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
-		8DC23C0229E9CF7F00EEC3FA /* TrendingMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrendingMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DC23C0229E9CF7F00EEC3FA /* Trending.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trending.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DC23C0529E9CF7F00EEC3FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8DC23C0E29E9CF8100EEC3FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8DC23C1129E9CF8100EEC3FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -167,7 +167,7 @@
 		8DC23C0329E9CF7F00EEC3FA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8DC23C0229E9CF7F00EEC3FA /* TrendingMovies.app */,
+				8DC23C0229E9CF7F00EEC3FA /* Trending.app */,
 				8DC23C1829E9CF8100EEC3FA /* TrendingMoviesTests.xctest */,
 				8DC23C2229E9CF8100EEC3FA /* TrendingMoviesUITests.xctest */,
 			);
@@ -291,9 +291,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8DC23C0129E9CF7F00EEC3FA /* TrendingMovies */ = {
+		8DC23C0129E9CF7F00EEC3FA /* Trending */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8DC23C2C29E9CF8100EEC3FA /* Build configuration list for PBXNativeTarget "TrendingMovies" */;
+			buildConfigurationList = 8DC23C2C29E9CF8100EEC3FA /* Build configuration list for PBXNativeTarget "Trending" */;
 			buildPhases = (
 				8DC23BFE29E9CF7F00EEC3FA /* Sources */,
 				8DC23BFF29E9CF7F00EEC3FA /* Frameworks */,
@@ -303,7 +303,7 @@
 			);
 			dependencies = (
 			);
-			name = TrendingMovies;
+			name = Trending;
 			packageProductDependencies = (
 				8D0DE69629EDD59A0094C671 /* SDWebImage */,
 				8D1BC01929FB10CA00C2DC76 /* RxCocoa */,
@@ -313,7 +313,7 @@
 				8D1BC02229FB10FC00C2DC76 /* RxDataSources */,
 			);
 			productName = TrendingMovies;
-			productReference = 8DC23C0229E9CF7F00EEC3FA /* TrendingMovies.app */;
+			productReference = 8DC23C0229E9CF7F00EEC3FA /* Trending.app */;
 			productType = "com.apple.product-type.application";
 		};
 		8DC23C1729E9CF8100EEC3FA /* TrendingMoviesTests */ = {
@@ -393,7 +393,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8DC23C0129E9CF7F00EEC3FA /* TrendingMovies */,
+				8DC23C0129E9CF7F00EEC3FA /* Trending */,
 				8DC23C1729E9CF8100EEC3FA /* TrendingMoviesTests */,
 				8DC23C2129E9CF8100EEC3FA /* TrendingMoviesUITests */,
 			);
@@ -475,12 +475,12 @@
 /* Begin PBXTargetDependency section */
 		8DC23C1A29E9CF8100EEC3FA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8DC23C0129E9CF7F00EEC3FA /* TrendingMovies */;
+			target = 8DC23C0129E9CF7F00EEC3FA /* Trending */;
 			targetProxy = 8DC23C1929E9CF8100EEC3FA /* PBXContainerItemProxy */;
 		};
 		8DC23C2429E9CF8100EEC3FA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8DC23C0129E9CF7F00EEC3FA /* TrendingMovies */;
+			target = 8DC23C0129E9CF7F00EEC3FA /* Trending */;
 			targetProxy = 8DC23C2329E9CF8100EEC3FA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -755,7 +755,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8DC23C2C29E9CF8100EEC3FA /* Build configuration list for PBXNativeTarget "TrendingMovies" */ = {
+		8DC23C2C29E9CF8100EEC3FA /* Build configuration list for PBXNativeTarget "Trending" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8DC23C2D29E9CF8100EEC3FA /* Debug */,
