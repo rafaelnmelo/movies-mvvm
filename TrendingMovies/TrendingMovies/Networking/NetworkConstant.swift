@@ -30,7 +30,7 @@ class NetworkConstant {
     
     public var trendingMovies: String {
         get {
-            "trending/all/day?api_key="
+            NetworkConstant.shared.serverAddress + "trending/all/day?api_key=" + NetworkConstant.shared.apiKey
         }
     }
 }

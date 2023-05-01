@@ -6,48 +6,24 @@
 //
 
 import Foundation
+import RxSwift
+import Differentiator
 
 class MainViewModel {
     
-    var isLoading = Observable(false)
-    var cellDataSource: Observable<[MovieTableCellViewModel]> = Observable(nil)
-    var dataSource: TrendingMoviesModel?
+    var dataSource = BehaviorSubject(value: [SectionModel(model: "", items: [Movie]())])
     
-    func numberOfSections() -> Int {
-        1
-    }
-    
-    func numberOfRows(in section: Int) -> Int {
-        self.dataSource?.results?.count ?? 0
-    }
-
     func getData() {
-        if isLoading.value ?? true {return}
-        isLoading.value = true
-        
-        APICaller.getTrendingMovies { [weak self] result in
-            self?.isLoading.value = false
-            
+        APICaller.getTrendingMovies { [weak self] result in          
             switch result {
             case .success(let movieList):
-                self?.dataSource = movieList
-                self?.mapCellData()
+                guard let movies = movieList.results else {return}
+                let trendingSection = SectionModel(model: "Trending", items: movies)
+                ///Emitindo evento com novo valor
+                self?.dataSource.on(.next([trendingSection]))
             case .failure(let error):
-                print(error)
+                self?.dataSource.onError(error)
             }
         }
-    }
-    
-    func mapCellData() {
-        self.cellDataSource.value = self.dataSource?.results?.compactMap({ MovieTableCellViewModel(movieData: $0)})
-    }
-    
-    func getMovieTitle(_ movie: Movie) -> String {
-        movie.title ?? movie.originalTitle ?? "[Sem título]"
-    }
-    
-    func retriveMovie(with id: Int) -> Movie? {
-        guard let movie = dataSource?.results?.first(where: {$0.id == id}) else {return nil}
-        return movie
     }
 }

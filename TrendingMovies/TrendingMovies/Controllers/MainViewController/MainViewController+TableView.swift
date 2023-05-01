@@ -6,60 +6,33 @@
 //
 
 import UIKit
+import RxSwift
+import RxDataSources
+import RxCocoa
 
-//MARK: - FUNCTIONS -
-extension MainViewController {
-    func setupTableView() {
-        tableview.delegate = self
-        tableview.dataSource = self
-
-        tableview.backgroundColor = .systemBackground
-        tableview.showsVerticalScrollIndicator  = false
-
-        registerCells()
-    }
-
-    func registerCells() {
-        tableview.register(MainMovieCell.self, forCellReuseIdentifier: MainMovieCell.identifier)
-    }
-
-    func reloadTableView() {
-        DispatchQueue.main.async {
-            self.tableview.reloadData()
-        }
-    }
-}
-
-//MARK: - DATASOURCE -
-extension MainViewController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        viewModel.numberOfSections()
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.numberOfRows(in: section)
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: MainMovieCell.identifier,
-                                                       for: indexPath) as? MainMovieCell else {
-            return UITableViewCell()
-        }
-        let cellViewModel = cellDataSource[indexPath.row]
-        cell.setupCell(viewModel: cellViewModel)
-        cell.selectionStyle = .none
-        return cell
-    }
-}
-
-//MARK: - DELEGATE -
 extension MainViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        150
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let movieId = cellDataSource[indexPath.row].id
-        self.createVCToNavigate(movieId: movieId)
+    func bindTableView() {
+        /// Set delegate ao rx
+        tableview.rx.setDelegate(self).disposed(by: bag)
+        /// Usando Rx para manejo do datasource
+        let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String,Movie>> { _,tableview,indexPath, item in
+            let cell = tableview.dequeueReusableCell(withIdentifier: MainMovieCell.identifier, for: indexPath) as! MainMovieCell
+            cell.setupCell(viewModel: MovieTableCellViewModel(movieData: item))
+            return cell
+        } titleForHeaderInSection: { dataSource, sectionIndex in
+            dataSource[sectionIndex].model
+        }
+        /// Atrelando itens da tableview ao conjunto de objetos da viewModel
+        self.viewModel.dataSource.bind(to: self.tableview.rx.items(dataSource: dataSource)).disposed(by: bag)
+        
+        /// Monitoramento de ação de exclusão de itens na tableview
+//        tableview.rx.itemDeleted.subscribe(onNext: { [weak self] indexPath in
+            /// Ações quando houver um evento de exclusão
+//        }).disposed(by: bag)
+        
+        /// Monitoramento de ação de seleção de itens na tableview
+//        tableview.rx.itemSelected.subscribe(onNext: { indexPath in
+            /// Ações quando houver uma seleção
+//        }).disposed(by: bag)
     }
 }

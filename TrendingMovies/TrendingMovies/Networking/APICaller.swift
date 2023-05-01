@@ -15,9 +15,8 @@ enum NetworkError: Error {
 public class APICaller {
     
     static func getTrendingMovies(callback: @escaping (_ result: Result<TrendingMoviesModel,NetworkError>) -> Void) {
-        let urlString = NetworkConstant.shared.serverAddress + NetworkConstant.shared.trendingMovies + NetworkConstant.shared.apiKey
         
-        guard let url = URL(string: urlString) else {
+        guard let url = URL(string: NetworkConstant.shared.trendingMovies) else {
             callback(.failure(.urlError))
             return
         }

@@ -137,8 +137,8 @@ extension MainMovieCell: ViewCodeProtocol {
     }
     
     func applyAdditionalChanges() {
-        
+        contentView.backgroundColor = .clear
+        backgroundColor = .clear
+        selectionStyle = .none
     }
-    
-    
 }

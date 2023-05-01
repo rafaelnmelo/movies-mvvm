@@ -6,27 +6,35 @@
 //
 
 import UIKit
+import RxSwift
 
 //MARK: - CLASS -
-class MainViewController: UIViewController {
+class MainViewController: BaseViewController {
     
-    @IBOutlet weak var tableview: UITableView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    lazy var backgroundImage: UIImageView = {
+       let image = UIImageView()
+        image.image = UIImage(named: "background")
+        image.contentMode = .scaleToFill
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.alpha = 0.4
+        return image
+    }()
+    
+    lazy var tableview: UITableView = {
+        let tableview = UITableView(frame: self.view.frame, style: .insetGrouped)
+        tableview.translatesAutoresizingMaskIntoConstraints = false
+        tableview.backgroundColor = .clear
+        tableview.register(MainMovieCell.self, forCellReuseIdentifier: MainMovieCell.identifier)
+        return tableview
+    }()
     
     var viewModel = MainViewModel()
-    var coordinator: AppCoordinator?
-    
-    var cellDataSource: [MovieTableCellViewModel] = []
+    var bag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.configView()
-        self.bindViewModel()
-    }
-    
-    func configView() {
-        self.title = "Tendências de Hoje"
-        self.setupTableView()
+        self.setupView()
+        self.bindTableView()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -35,30 +43,28 @@ class MainViewController: UIViewController {
     }
 }
 
-//MARK: - FUNCTIONS -
-extension MainViewController {
-    func bindViewModel() {
-        viewModel.isLoading.bind { [weak self] isLoading in
-            guard let self = self, let isLoading = isLoading else {return}
-            
-            DispatchQueue.main.async {
-                isLoading ? self.activityIndicator.startAnimating() : self.activityIndicator.stopAnimating()
-            }
-        }
-        
-        viewModel.cellDataSource.bind { [weak self] movieList in
-            guard let self = self, let movieList = movieList else {return}
-            self.cellDataSource = movieList
-            self.reloadTableView()
-            
-        }
+//MARK: - VIEWCODE PROTOCOL -
+extension MainViewController: ViewCodeProtocol {
+    func buildHierarchy() {
+        view.addSubview(backgroundImage)
+        view.addSubview(tableview)
     }
     
-    func createVCToNavigate(movieId: Int) {
-        guard let movie = viewModel.retriveMovie(with: movieId) else {return}
-        let detailsViewModel = DetailsMovieViewModel(movie: movie)
-        DispatchQueue.main.async {
-            self.coordinator?.goToDetails(viewModel: detailsViewModel)
-        }
+    func setupConstraints() {
+        NSLayoutConstraint.activate([
+            backgroundImage.topAnchor.constraint(equalTo: view.topAnchor),
+            backgroundImage.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backgroundImage.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            backgroundImage.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            tableview.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tableview.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableview.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableview.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+    }
+    
+    func applyAdditionalChanges() {
+        //Do additional setup here
     }
 }
