@@ -14,12 +14,13 @@ extension MainViewController {
         tableview.dataSource = self
 
         tableview.backgroundColor = .systemBackground
+        tableview.showsVerticalScrollIndicator  = false
 
         registerCells()
     }
 
     func registerCells() {
-        tableview.register(MainMovieCell.register(), forCellReuseIdentifier: MainMovieCell.identifier)
+        tableview.register(MainMovieCell.self, forCellReuseIdentifier: MainMovieCell.identifier)
     }
 
     func reloadTableView() {
