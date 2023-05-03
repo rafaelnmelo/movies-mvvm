@@ -1,5 +1,5 @@
 //
-//  MovieTableCellViewModel.swift
+//  MovieCellViewModel.swift
 //  TrendingMovies
 //
 //  Created by Rafael Melo on 17/04/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class MovieTableCellViewModel {
+class MovieCellViewModel {
     
     var id: Int
     var title: String

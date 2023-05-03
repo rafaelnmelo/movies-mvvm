@@ -1,5 +1,5 @@
 //
-//  MainViewController.swift
+//  TrendingViewController.swift
 //  TrendingMovies
 //
 //  Created by Rafael Melo on 14/04/23.
@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 
 //MARK: - CLASS -
-class MainViewController: BaseViewController {
+class TrendingViewController: BaseViewController {
     
     lazy var backgroundImage: UIImageView = {
        let image = UIImageView()
@@ -24,27 +24,27 @@ class MainViewController: BaseViewController {
         let tableview = UITableView(frame: self.view.frame, style: .insetGrouped)
         tableview.translatesAutoresizingMaskIntoConstraints = false
         tableview.backgroundColor = .clear
-        tableview.register(MainMovieCell.self, forCellReuseIdentifier: MainMovieCell.identifier)
+        tableview.register(MovieCell.self, forCellReuseIdentifier: MovieCell.identifier)
         return tableview
     }()
     
-    var viewModel = MainViewModel()
+    var viewModel = TrendingViewModel()
     var bag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupView()
         self.bindTableView()
     }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.setupView()
         viewModel.getData()
     }
 }
 
 //MARK: - VIEWCODE PROTOCOL -
-extension MainViewController: ViewCodeProtocol {
+extension TrendingViewController: ViewCodeProtocol {
     func buildHierarchy() {
         view.addSubview(backgroundImage)
         view.addSubview(tableview)
@@ -65,6 +65,7 @@ extension MainViewController: ViewCodeProtocol {
     }
     
     func applyAdditionalChanges() {
-        //Do additional setup here
+        coordinator?.navigationController.navigationBar.prefersLargeTitles = true
+        title = "Destaques"
     }
 }

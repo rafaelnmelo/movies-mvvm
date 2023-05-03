@@ -1,5 +1,5 @@
 //
-//  MainViewController+TableView.swift
+//  TrendingViewController+TableView.swift
 //  TrendingMovies
 //
 //  Created by Rafael Melo on 14/04/23.
@@ -10,7 +10,7 @@ import RxSwift
 import RxDataSources
 import RxCocoa
 
-extension MainViewController: UITableViewDelegate {
+extension TrendingViewController: UITableViewDelegate {
     func bindTableView() {
         /// Set delegate ao rx
         tableview.rx.setDelegate(self).disposed(by: bag)
@@ -18,9 +18,9 @@ extension MainViewController: UITableViewDelegate {
         /// Usando Rx para manejo do datasource
         let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String,Movie>> {
             _ ,tableview,indexPath, item in
-            let cell = tableview.dequeueReusableCell(withIdentifier: MainMovieCell.identifier,
-                                                     for: indexPath) as! MainMovieCell
-            let data = MovieTableCellViewModel(movieData: item)
+            let cell = tableview.dequeueReusableCell(withIdentifier: MovieCell.identifier,
+                                                     for: indexPath) as! MovieCell
+            let data = MovieCellViewModel(movieData: item)
             cell.setupCell(viewModel: data)
             return cell
         } titleForHeaderInSection: { dataSource, sectionIndex in
@@ -33,7 +33,7 @@ extension MainViewController: UITableViewDelegate {
         /// Monitoramento de ação de seleção de itens na tableview
         tableview.rx.modelSelected(Movie.self).subscribe(onNext: {
             movie in
-            let data = DetailsMovieViewModel(movie: movie)
+            let data = MovieDetailsViewModel(movie: movie)
             self.coordinator?.goToDetails(viewModel: data)
         })
         .disposed(by: bag)

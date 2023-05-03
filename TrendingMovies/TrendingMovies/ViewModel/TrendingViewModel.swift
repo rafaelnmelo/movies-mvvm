@@ -1,5 +1,5 @@
 //
-//  MainViewModel.swift
+//  TrendingViewModel.swift
 //  TrendingMovies
 //
 //  Created by Rafael Melo on 14/04/23.
@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 import Differentiator
 
-class MainViewModel {
+class TrendingViewModel {
     
     var dataSource = BehaviorSubject(value: [SectionModel(model: "", items: [Movie]())])
     

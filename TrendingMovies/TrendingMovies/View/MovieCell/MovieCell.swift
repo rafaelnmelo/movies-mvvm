@@ -1,5 +1,5 @@
 //
-//  MainMovieCell.swift
+//  MovieCell.swift
 //  TrendingMovies
 //
 //  Created by Rafael Melo on 17/04/23.
@@ -9,7 +9,7 @@ import UIKit
 import SDWebImage
 
 //MARK: - CLASS -
-class MainMovieCell: UITableViewCell {
+class MovieCell: UITableViewCell {
 
     public static var identifier: String {
         get {
@@ -86,8 +86,8 @@ class MainMovieCell: UITableViewCell {
 }
 
 //MARK: - FUNCTIONS -
-extension MainMovieCell {
-    func setupCell(viewModel: MovieTableCellViewModel) {
+extension MovieCell {
+    func setupCell(viewModel: MovieCellViewModel) {
         self.title.text = viewModel.title
         self.date.text = viewModel.date
         self.rating.text = viewModel.rating
@@ -96,7 +96,7 @@ extension MainMovieCell {
 }
 
 //MARK: - VIEWCODE PROTOCOL -
-extension MainMovieCell: ViewCodeProtocol {
+extension MovieCell: ViewCodeProtocol {
     func buildHierarchy() {
         contentView.addSubview(containerView)
         containerView.addSubview(blurView)
