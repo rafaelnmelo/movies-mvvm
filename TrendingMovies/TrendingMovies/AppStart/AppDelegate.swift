@@ -15,16 +15,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // create the main navigation controller to be used for our app
+        /// Criando o controlador de navegação principal do aplicativo
         let navController = BaseNavigationController()
 
-        // send that into our coordinator so that it can display view controllers
+        /// Enviando para o coordenador para que ele possa exibir os viewControllers
         coordinator = AppCoordinator(navigationController: navController)
 
-        // tell the coordinator to take over control
+        /// Coordenador assume o controle
         coordinator?.start()
 
-        // create a basic UIWindow and activate it
+        /// Criando uma UIWindow e ativando
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = navController
         window?.makeKeyAndVisible()
